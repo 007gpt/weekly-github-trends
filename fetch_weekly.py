@@ -4,7 +4,7 @@ import json
 import os
 import re
 import time
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 import requests
@@ -264,7 +264,7 @@ def section_ai_hot() -> list[dict]:
 
 
 def main():
-    now = datetime.now(datetime.UTC)
+    now = datetime.now(timezone.utc)
     today = now.strftime("%Y-%m-%d")
     print(f"[{today}] Fetching weekly GitHub trends...")
 
