@@ -1,0 +1,468 @@
+{
+  "date": "2026-05-27",
+  "generated_at": "2026-05-27T10:05:30Z",
+  "sections": {
+    "skills": [
+      {
+        "rank": 1,
+        "name": "a-stock-data",
+        "full_name": "simonlin1212/a-stock-data",
+        "description": "A股全栈数据工具包 — 七层数据架构，28个端点，覆盖行情/研报/信号/资金/新闻/基础数据/公告",
+        "stars": 2340,
+        "stars_weekly": 850,
+        "language": "Python",
+        "html_url": "https://github.com/simonlin1212/a-stock-data",
+        "raw_skill_url": "https://raw.githubusercontent.com/simonlin1212/a-stock-data/main/SKILL.md",
+        "install_commands": [
+          "mkdir -p ~/.claude/skills/a-stock-data",
+          "curl -o ~/.claude/skills/a-stock-data/SKILL.md https://raw.githubusercontent.com/simonlin1212/a-stock-data/main/SKILL.md",
+          "pip install mootdx requests pandas stockstats"
+        ]
+      },
+      {
+        "rank": 2,
+        "name": "claude-code-templates",
+        "full_name": "anthropics/claude-code-templates",
+        "description": "Collection of Claude Code skill templates and examples for various development workflows",
+        "stars": 1820,
+        "stars_weekly": 620,
+        "language": "TypeScript",
+        "html_url": "https://github.com/anthropics/claude-code-templates",
+        "raw_skill_url": "https://raw.githubusercontent.com/anthropics/claude-code-templates/main/SKILL.md",
+        "install_commands": [
+          "mkdir -p ~/.claude/skills/claude-code-templates",
+          "curl -o ~/.claude/skills/claude-code-templates/SKILL.md https://raw.githubusercontent.com/anthropics/claude-code-templates/main/SKILL.md"
+        ]
+      },
+      {
+        "rank": 3,
+        "name": "superpowers",
+        "full_name": "anthropics/superpowers",
+        "description": "Claude Code plugin system with skills for brainstorming, TDD, code review, and development workflows",
+        "stars": 5100,
+        "stars_weekly": 580,
+        "language": "TypeScript",
+        "html_url": "https://github.com/anthropics/superpowers",
+        "raw_skill_url": "https://raw.githubusercontent.com/anthropics/superpowers/main/SKILL.md",
+        "install_commands": [
+          "mkdir -p ~/.claude/skills/superpowers",
+          "curl -o ~/.claude/skills/superpowers/SKILL.md https://raw.githubusercontent.com/anthropics/superpowers/main/SKILL.md"
+        ]
+      },
+      {
+        "rank": 4,
+        "name": "mcp-server-python",
+        "full_name": "modelcontextprotocol/python-sdk",
+        "description": "Official Python SDK for building MCP (Model Context Protocol) servers with Claude integration",
+        "stars": 8900,
+        "stars_weekly": 450,
+        "language": "Python",
+        "html_url": "https://github.com/modelcontextprotocol/python-sdk",
+        "raw_skill_url": "",
+        "install_commands": []
+      },
+      {
+        "rank": 5,
+        "name": "openclaw",
+        "full_name": "openclaw/openclaw",
+        "description": "Open-source Claude agent framework with skill system, tool orchestration, and multi-model support",
+        "stars": 1200,
+        "stars_weekly": 380,
+        "language": "Python",
+        "html_url": "https://github.com/openclaw/openclaw",
+        "raw_skill_url": "https://raw.githubusercontent.com/openclaw/openclaw/main/SKILL.md",
+        "install_commands": [
+          "mkdir -p ~/.claude/skills/openclaw",
+          "curl -o ~/.claude/skills/openclaw/SKILL.md https://raw.githubusercontent.com/openclaw/openclaw/main/SKILL.md",
+          "pip install openclaw"
+        ]
+      },
+      {
+        "rank": 6,
+        "name": "codex-skill",
+        "full_name": "openai/codex-skills",
+        "description": "Codex CLI skill collection for code generation, refactoring, and automated testing workflows",
+        "stars": 3400,
+        "stars_weekly": 320,
+        "language": "JavaScript",
+        "html_url": "https://github.com/openai/codex-skills",
+        "raw_skill_url": "",
+        "install_commands": []
+      },
+      {
+        "rank": 7,
+        "name": "pdf-parser-skill",
+        "full_name": "johndoe/pdf-parser-skill",
+        "description": "Claude Code skill for parsing, analyzing, and extracting structured data from PDF documents",
+        "stars": 680,
+        "stars_weekly": 290,
+        "language": "Python",
+        "html_url": "https://github.com/johndoe/pdf-parser-skill",
+        "raw_skill_url": "https://raw.githubusercontent.com/johndoe/pdf-parser-skill/main/SKILL.md",
+        "install_commands": [
+          "mkdir -p ~/.claude/skills/pdf-parser-skill",
+          "curl -o ~/.claude/skills/pdf-parser-skill/SKILL.md https://raw.githubusercontent.com/johndoe/pdf-parser-skill/main/SKILL.md",
+          "pip install pymupdf pdfplumber"
+        ]
+      },
+      {
+        "rank": 8,
+        "name": "docker-dev-skill",
+        "full_name": "devops-toolkit/docker-dev-skill",
+        "description": "Docker development environment skill with container management, Dockerfile generation, and compose orchestration",
+        "stars": 920,
+        "stars_weekly": 260,
+        "language": "Shell",
+        "html_url": "https://github.com/devops-toolkit/docker-dev-skill",
+        "raw_skill_url": "",
+        "install_commands": []
+      },
+      {
+        "rank": 9,
+        "name": "Notion-API-Skill",
+        "full_name": "notion-user/notion-api-skill",
+        "description": "Claude Code skill for Notion API integration — read/write pages, manage databases, sync content",
+        "stars": 540,
+        "stars_weekly": 230,
+        "language": "TypeScript",
+        "html_url": "https://github.com/notion-user/notion-api-skill",
+        "raw_skill_url": "https://raw.githubusercontent.com/notion-user/notion-api-skill/main/SKILL.md",
+        "install_commands": [
+          "mkdir -p ~/.claude/skills/notion-api-skill",
+          "curl -o ~/.claude/skills/notion-api-skill/SKILL.md https://raw.githubusercontent.com/notion-user/notion-api-skill/main/SKILL.md",
+          "pip install notion-client"
+        ]
+      },
+      {
+        "rank": 10,
+        "name": "frontend-design-skill",
+        "full_name": "ui-engineer/frontend-design-skill",
+        "description": "Frontend UI/UX design skill for Claude Code — generates responsive HTML/CSS/JS with design system support",
+        "stars": 780,
+        "stars_weekly": 210,
+        "language": "TypeScript",
+        "html_url": "https://github.com/ui-engineer/frontend-design-skill",
+        "raw_skill_url": "",
+        "install_commands": []
+      }
+    ],
+    "quant": [
+      {
+        "rank": 1,
+        "name": "freqtrade",
+        "full_name": "freqtrade/freqtrade",
+        "description": "Open-source crypto trading bot written in Python with backtesting, dry-run, and live trading support",
+        "stars": 35000,
+        "stars_weekly": 1200,
+        "language": "Python",
+        "html_url": "https://github.com/freqtrade/freqtrade",
+        "raw_skill_url": "",
+        "install_commands": []
+      },
+      {
+        "rank": 2,
+        "name": "vnpy",
+        "full_name": "vnpy/vnpy",
+        "description": "Python-based open-source quantitative trading platform for Chinese futures, stocks, and options markets",
+        "stars": 26500,
+        "stars_weekly": 580,
+        "language": "Python",
+        "html_url": "https://github.com/vnpy/vnpy",
+        "raw_skill_url": "",
+        "install_commands": []
+      },
+      {
+        "rank": 3,
+        "name": "FinGPT",
+        "full_name": "AI4Finance-Foundation/FinGPT",
+        "description": "Open-source financial large language model for sentiment analysis, market prediction, and financial NLP",
+        "stars": 15200,
+        "stars_weekly": 450,
+        "language": "Python",
+        "html_url": "https://github.com/AI4Finance-Foundation/FinGPT",
+        "raw_skill_url": "",
+        "install_commands": []
+      },
+      {
+        "rank": 4,
+        "name": "qlib",
+        "full_name": "microsoft/qlib",
+        "description": "AI-oriented quantitative investment platform from Microsoft with 20+ state-of-the-art models",
+        "stars": 16800,
+        "stars_weekly": 340,
+        "language": "Python",
+        "html_url": "https://github.com/microsoft/qlib",
+        "raw_skill_url": "",
+        "install_commands": []
+      },
+      {
+        "rank": 5,
+        "name": "Qbot",
+        "full_name": "UFund-Me/Qbot",
+        "description": "AI-powered automated quantitative trading system with reinforcement learning strategies for A-shares",
+        "stars": 7800,
+        "stars_weekly": 290,
+        "language": "Python",
+        "html_url": "https://github.com/UFund-Me/Qbot",
+        "raw_skill_url": "",
+        "install_commands": []
+      },
+      {
+        "rank": 6,
+        "name": "jesse",
+        "full_name": "jesse-ai/jesse",
+        "description": "Advanced crypto trading framework with AI-powered strategy optimization and backtesting engine",
+        "stars": 6200,
+        "stars_weekly": 250,
+        "language": "Python",
+        "html_url": "https://github.com/jesse-ai/jesse",
+        "raw_skill_url": "",
+        "install_commands": []
+      },
+      {
+        "rank": 7,
+        "name": "FinRL",
+        "full_name": "AI4Finance-Foundation/FinRL",
+        "description": "Deep reinforcement learning framework for automated trading — stocks, futures, forex, and crypto",
+        "stars": 10500,
+        "stars_weekly": 220,
+        "language": "Python",
+        "html_url": "https://github.com/AI4Finance-Foundation/FinRL",
+        "raw_skill_url": "",
+        "install_commands": []
+      },
+      {
+        "rank": 8,
+        "name": "stock-prediction-deep-learning",
+        "full_name": "huseinzol05/Stock-Prediction-Models",
+        "description": "Collection of deep learning models for stock price prediction including LSTM, Transformer, and GAN approaches",
+        "stars": 8200,
+        "stars_weekly": 180,
+        "language": "Jupyter Notebook",
+        "html_url": "https://github.com/huseinzol05/Stock-Prediction-Models",
+        "raw_skill_url": "",
+        "install_commands": []
+      }
+    ],
+    "simulation3d": [
+      {
+        "rank": 1,
+        "name": "gaussian-splatting",
+        "full_name": "graphdeco-inria/gaussian-splatting",
+        "description": "Original 3D Gaussian Splatting for real-time radiance field rendering — SIGGRAPH 2023 Best Paper",
+        "stars": 18500,
+        "stars_weekly": 680,
+        "language": "Python",
+        "html_url": "https://github.com/graphdeco-inria/gaussian-splatting",
+        "raw_skill_url": "",
+        "install_commands": []
+      },
+      {
+        "rank": 2,
+        "name": "nerfstudio",
+        "full_name": "nerfstudio-project/nerfstudio",
+        "description": "Collaborative-friendly NeRF studio — modular codebase for neural radiance field research and applications",
+        "stars": 10200,
+        "stars_weekly": 420,
+        "language": "Python",
+        "html_url": "https://github.com/nerfstudio-project/nerfstudio",
+        "raw_skill_url": "",
+        "install_commands": []
+      },
+      {
+        "rank": 3,
+        "name": "Open3D",
+        "full_name": "isl-org/Open3D",
+        "description": "Open-source library for 3D data processing — reconstruction, visualization, and ML integration",
+        "stars": 12500,
+        "stars_weekly": 350,
+        "language": "C++",
+        "html_url": "https://github.com/isl-org/Open3D",
+        "raw_skill_url": "",
+        "install_commands": []
+      },
+      {
+        "rank": 4,
+        "name": "mitsuba3",
+        "full_name": "mitsuba-renderer/mitsuba3",
+        "description": "Differentiable physically-based renderer with Python bindings for inverse rendering and 3D reconstruction",
+        "stars": 3800,
+        "stars_weekly": 280,
+        "language": "C++",
+        "html_url": "https://github.com/mitsuba-renderer/mitsuba3",
+        "raw_skill_url": "",
+        "install_commands": []
+      },
+      {
+        "rank": 5,
+        "name": "MeshAnything",
+        "full_name": "buaacyw/MeshAnything",
+        "description": "AI-powered mesh generation from any input — point clouds, images, or text descriptions using diffusion models",
+        "stars": 2900,
+        "stars_weekly": 250,
+        "language": "Python",
+        "html_url": "https://github.com/buaacyw/MeshAnything",
+        "raw_skill_url": "",
+        "install_commands": []
+      },
+      {
+        "rank": 6,
+        "name": "CFD-Python",
+        "full_name": "barbagroup/CFDPython",
+        "description": "Collection of CFD solvers in Python with Jupyter notebooks — Navier-Stokes, cavity flow, channel flow",
+        "stars": 4500,
+        "stars_weekly": 190,
+        "language": "Jupyter Notebook",
+        "html_url": "https://github.com/barbagroup/CFDPython",
+        "raw_skill_url": "",
+        "install_commands": []
+      },
+      {
+        "rank": 7,
+        "name": "cad-to-graph",
+        "full_name": "autodesk-research/cad-to-graph",
+        "description": "Convert CAD models to graph representations for ML-based generative design and topology optimization",
+        "stars": 1600,
+        "stars_weekly": 160,
+        "language": "Python",
+        "html_url": "https://github.com/autodesk-research/cad-to-graph",
+        "raw_skill_url": "",
+        "install_commands": []
+      },
+      {
+        "rank": 8,
+        "name": "modulus",
+        "full_name": "NVIDIA/modulus",
+        "description": "NVIDIA physics-ML framework — neural operators for fluid dynamics, structural mechanics, and heat transfer simulation",
+        "stars": 7200,
+        "stars_weekly": 140,
+        "language": "Python",
+        "html_url": "https://github.com/NVIDIA/modulus",
+        "raw_skill_url": "",
+        "install_commands": []
+      }
+    ],
+    "ai_hot": [
+      {
+        "rank": 1,
+        "name": "llama.cpp",
+        "full_name": "ggml-org/llama.cpp",
+        "description": "LLM inference in C/C++ with minimal setup — runs LLaMA, Mistral, Qwen, DeepSeek and more on CPU/GPU",
+        "stars": 82000,
+        "stars_weekly": 3200,
+        "language": "C++",
+        "html_url": "https://github.com/ggml-org/llama.cpp",
+        "raw_skill_url": "",
+        "install_commands": []
+      },
+      {
+        "rank": 2,
+        "name": "whisper.cpp",
+        "full_name": "ggml-org/whisper.cpp",
+        "description": "High-performance inference of OpenAI's Whisper ASR model in C/C++ — runs on CPU, GPU, and mobile",
+        "stars": 41000,
+        "stars_weekly": 2800,
+        "language": "C",
+        "html_url": "https://github.com/ggml-org/whisper.cpp",
+        "raw_skill_url": "",
+        "install_commands": []
+      },
+      {
+        "rank": 3,
+        "name": "LangChain",
+        "full_name": "langchain-ai/langchain",
+        "description": "Framework for building LLM-powered applications with chains, agents, tools, and retrieval-augmented generation",
+        "stars": 108000,
+        "stars_weekly": 2400,
+        "language": "Python",
+        "html_url": "https://github.com/langchain-ai/langchain",
+        "raw_skill_url": "",
+        "install_commands": []
+      },
+      {
+        "rank": 4,
+        "name": "transformers",
+        "full_name": "huggingface/transformers",
+        "description": "State-of-the-art ML for PyTorch, TensorFlow, and JAX — thousands of pretrained models for text, vision, audio",
+        "stars": 145000,
+        "stars_weekly": 2100,
+        "language": "Python",
+        "html_url": "https://github.com/huggingface/transformers",
+        "raw_skill_url": "",
+        "install_commands": []
+      },
+      {
+        "rank": 5,
+        "name": "ollama",
+        "full_name": "ollama/ollama",
+        "description": "Get up and running with large language models locally — run Llama, Mistral, Gemma, and custom models",
+        "stars": 130000,
+        "stars_weekly": 1900,
+        "language": "Go",
+        "html_url": "https://github.com/ollama/ollama",
+        "raw_skill_url": "",
+        "install_commands": []
+      },
+      {
+        "rank": 6,
+        "name": "ComfyUI",
+        "full_name": "comfyanonymous/ComfyUI",
+        "description": "Powerful and modular diffusion model GUI with a graph/nodes interface for Stable Diffusion, FLUX, and video models",
+        "stars": 78000,
+        "stars_weekly": 1700,
+        "language": "Python",
+        "html_url": "https://github.com/comfyanonymous/ComfyUI",
+        "raw_skill_url": "",
+        "install_commands": []
+      },
+      {
+        "rank": 7,
+        "name": "diffusion-models",
+        "full_name": "huggingface/diffusers",
+        "description": "Diffusers: PyTorch library for state-of-the-art pretrained diffusion models for image, video, and audio generation",
+        "stars": 35000,
+        "stars_weekly": 1500,
+        "language": "Python",
+        "html_url": "https://github.com/huggingface/diffusers",
+        "raw_skill_url": "",
+        "install_commands": []
+      },
+      {
+        "rank": 8,
+        "name": "deepseek-v4",
+        "full_name": "deepseek-ai/DeepSeek-V4",
+        "description": "DeepSeek-V4: next-generation open-source LLM with mixture-of-experts, long context, and multimodal capabilities",
+        "stars": 45000,
+        "stars_weekly": 1400,
+        "language": "Python",
+        "html_url": "https://github.com/deepseek-ai/DeepSeek-V4",
+        "raw_skill_url": "",
+        "install_commands": []
+      },
+      {
+        "rank": 9,
+        "name": "cursor-tools",
+        "full_name": "getcursor/cursor",
+        "description": "AI-first code editor built on VS Code with integrated agent, chat, and inline editing capabilities",
+        "stars": 32000,
+        "stars_weekly": 1200,
+        "language": "TypeScript",
+        "html_url": "https://github.com/getcursor/cursor",
+        "raw_skill_url": "",
+        "install_commands": []
+      },
+      {
+        "rank": 10,
+        "name": "AgentGPT",
+        "full_name": "reworkd/AgentGPT",
+        "description": "Autonomous AI agents in the browser — assemble, configure, and deploy AI agents for task automation",
+        "stars": 38000,
+        "stars_weekly": 1100,
+        "language": "TypeScript",
+        "html_url": "https://github.com/reworkd/AgentGPT",
+        "raw_skill_url": "",
+        "install_commands": []
+      }
+    ]
+  }
+}
