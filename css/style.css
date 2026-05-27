@@ -1,0 +1,273 @@
+/* === Reset & Base === */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b22;
+  --border: #30363d;
+  --text-primary: #f0f6fc;
+  --text-secondary: #8b949e;
+  --text-muted: #484f58;
+  --color-skills: #f78166;
+  --color-quant: #ff7b72;
+  --color-sim3d: #a5d6ff;
+  --color-ai: #d2a8ff;
+  --color-accent: #58a6ff;
+  --color-green: #3fb950;
+  --color-red: #f85149;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  display: flex;
+  min-height: 100vh;
+}
+
+/* === Layout === */
+#sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border);
+  padding: 28px 18px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0; left: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+#sidebar h1 {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+#sidebar .update-info {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 28px;
+}
+
+#sidebar nav { display: flex; flex-direction: column; gap: 6px; }
+
+#sidebar nav button {
+  all: unset;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--text-secondary);
+  border-left: 3px solid transparent;
+  transition: all 0.15s ease;
+}
+
+#sidebar nav button:hover { background: rgba(255,255,255,0.04); }
+#sidebar nav button.active { background: rgba(56,139,253,0.1); border-left-color: var(--color-skills); color: var(--text-primary); }
+#sidebar nav button.active.skills { border-left-color: var(--color-skills); }
+#sidebar nav button.active.quant { border-left-color: var(--color-quant); }
+#sidebar nav button.active.simulation3d { border-left-color: var(--color-sim3d); }
+#sidebar nav button.active.ai_hot { border-left-color: var(--color-ai); }
+
+#sidebar .footer {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+#sidebar .footer a { color: var(--color-accent); text-decoration: none; }
+
+/* === Main Content === */
+#main {
+  flex: 1;
+  margin-left: 220px;
+  padding: 40px 48px;
+  max-width: 900px;
+}
+
+.section { display: none; }
+.section.visible { display: block; }
+
+.section-header {
+  margin-bottom: 28px;
+}
+
+.section-header .label {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.section-header h2 { font-size: 24px; margin-bottom: 6px; }
+.section-header .subtitle { font-size: 14px; color: var(--text-secondary); }
+
+/* === Repo Card === */
+.repo-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin-bottom: 12px;
+  transition: border-color 0.15s;
+}
+
+.repo-card:hover { border-color: var(--color-accent); }
+
+.repo-card .card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.repo-card .card-info { flex: 1; min-width: 0; }
+
+.repo-card .rank {
+  font-size: 18px;
+  font-weight: 700;
+  margin-right: 8px;
+}
+
+.repo-card .repo-name {
+  font-size: 16px;
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.repo-card .repo-name:hover { text-decoration: underline; }
+
+.repo-card .rank-change {
+  font-size: 12px;
+  margin-left: 4px;
+}
+
+.repo-card .rank-change.up { color: var(--color-green); }
+.repo-card .rank-change.down { color: var(--color-red); }
+
+.repo-card .repo-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+.repo-card .card-meta {
+  display: flex;
+  gap: 16px;
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.repo-card .card-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* === Buttons === */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.15s;
+  white-space: nowrap;
+  font-family: inherit;
+}
+
+.btn-install {
+  background: #238636;
+  color: #fff;
+}
+
+.btn-install:hover { background: #2ea043; }
+.btn-install:active { background: #196c2e; }
+
+.btn-gh {
+  background: var(--bg-primary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+
+.btn-gh:hover { background: var(--bg-secondary); color: var(--text-primary); }
+
+/* === Toast === */
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #238636;
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  z-index: 999;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast .cmd-preview {
+  display: block;
+  font-family: monospace;
+  font-size: 11px;
+  margin-top: 6px;
+  opacity: 0.85;
+  background: rgba(0,0,0,0.2);
+  padding: 6px 8px;
+  border-radius: 4px;
+}
+
+/* === Loading / Empty === */
+.loading, .empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-muted);
+}
+
+.empty-state p { font-size: 14px; }
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  body { flex-direction: column; }
+  #sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 16px;
+    gap: 8px;
+    align-items: center;
+  }
+  #sidebar h1 { font-size: 16px; margin: 0; }
+  #sidebar nav { flex-direction: row; flex-wrap: wrap; }
+  #sidebar nav button { padding: 8px 12px; font-size: 12px; }
+  #sidebar .update-info, #sidebar .footer { display: none; }
+  #main { margin-left: 0; padding: 20px 16px; }
+  .repo-card .card-top { flex-direction: column; }
+  .repo-card .card-actions { width: 100%; }
+}
