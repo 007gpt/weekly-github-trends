@@ -18,12 +18,20 @@ if TOKEN:
 
 
 def gh_search(query: str, sort: str = "stars", per_page: int = 15) -> list[dict]:
-    """Search GitHub repos API."""
+    """Search GitHub repos API with rate-limit handling."""
     url = f"{GITHUB_API}/search/repositories"
     params = {"q": query, "sort": sort, "order": "desc", "per_page": per_page}
-    r = requests.get(url, headers=HEADERS, params=params, timeout=30)
-    r.raise_for_status()
-    return r.json().get("items", [])
+    for attempt in range(3):
+        r = requests.get(url, headers=HEADERS, params=params, timeout=30)
+        if r.status_code in (403, 429):
+            wait = int(r.headers.get("Retry-After", 60)) + 5
+            print(f"    Rate limited, waiting {wait}s (attempt {attempt+1})")
+            time.sleep(wait)
+            continue
+        r.raise_for_status()
+        return r.json().get("items", [])
+    print(f"    WARNING: search failed after 3 retries for '{query}'")
+    return []
 
 
 def gh_trending_weekly() -> list[dict]:
@@ -134,7 +142,7 @@ def section_skills() -> list[dict]:
             fn = item["full_name"]
             if fn not in all_repos:
                 all_repos[fn] = item
-        time.sleep(1)  # rate limit courtesy
+        time.sleep(8)  # search API: 10 req/min
 
     results = []
     for fn, item in list(all_repos.items())[:10]:
@@ -163,7 +171,7 @@ def section_quant() -> list[dict]:
             fn = item["full_name"]
             if fn not in all_repos:
                 all_repos[fn] = item
-        time.sleep(1)
+        time.sleep(8)
 
     filtered = {k: v for k, v in all_repos.items()
                 if (v.get("stargazers_count") or 0) >= 10}
@@ -197,7 +205,7 @@ def section_simulation3d() -> list[dict]:
             fn = item["full_name"]
             if (item.get("stargazers_count") or 0) >= 50 and fn not in all_repos:
                 all_repos[fn] = item
-        time.sleep(1)
+        time.sleep(8)
 
     sorted_repos = sorted(all_repos.values(),
                           key=lambda x: x.get("stargazers_count", 0), reverse=True)[:8]
@@ -256,12 +264,13 @@ def section_ai_hot() -> list[dict]:
 
 
 def main():
-    today = datetime.utcnow().strftime("%Y-%m-%d")
+    now = datetime.now(datetime.UTC)
+    today = now.strftime("%Y-%m-%d")
     print(f"[{today}] Fetching weekly GitHub trends...")
 
     data = {
         "date": today,
-        "generated_at": datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "generated_at": now.strftime("%Y-%m-%dT%H:%M:%SZ"),
         "sections": {},
     }
 
