@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitHub 周报</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Toast -->
+<div id="toast" class="toast">
+  <span id="toast-msg">安装命令已复制到剪贴板</span>
+  <code id="toast-cmd" class="cmd-preview"></code>
+</div>
+
+<!-- Sidebar -->
+<aside id="sidebar">
+  <h1>📊 GitHub 周报</h1>
+  <div class="update-info" id="sidebar-date">加载中...</div>
+  <nav>
+    <button data-section="skills" class="active skills">🔥 Skill 榜单</button>
+    <button data-section="quant" class="quant">📈 投资量化</button>
+    <button data-section="simulation3d" class="simulation3d">🏗️ AI 三维仿真</button>
+    <button data-section="ai_hot" class="ai_hot">🤖 AI 最热</button>
+  </nav>
+  <div class="footer">
+    每周五 18:00 更新<br>
+    数据来源: <a href="https://github.com" target="_blank">GitHub API</a><br>
+    <a href="https://github.com/007gpt/weekly-github-trends" target="_blank">View Source</a>
+  </div>
+</aside>
+
+<!-- Main Content -->
+<main id="main">
+  <!-- Section 1: Skills -->
+  <section id="section-skills" class="section visible">
+    <div class="section-header">
+      <div class="label" style="color:var(--color-skills)">Section 1</div>
+      <h2>🔥 Skill 火热上升榜单</h2>
+      <p class="subtitle">Claude Code / Codex / OpenClaw 技能生态本周最火仓库</p>
+    </div>
+    <div id="skills-list"></div>
+  </section>
+
+  <!-- Section 2: Quant -->
+  <section id="section-quant" class="section">
+    <div class="section-header">
+      <div class="label" style="color:var(--color-quant)">Section 2</div>
+      <h2>📈 投资量化</h2>
+      <p class="subtitle">AI 驱动的量化交易、股票预测、金融分析项目</p>
+    </div>
+    <div id="quant-list"></div>
+  </section>
+
+  <!-- Section 3: 3D Simulation -->
+  <section id="section-simulation3d" class="section">
+    <div class="section-header">
+      <div class="label" style="color:var(--color-sim3d)">Section 3</div>
+      <h2>🏗️ AI · 三维建模与仿真</h2>
+      <p class="subtitle">AI + CAD/CAE/CFD/FEA · 3D 重建 · 网格生成</p>
+    </div>
+    <div id="simulation3d-list"></div>
+  </section>
+
+  <!-- Section 4: AI Hot -->
+  <section id="section-ai_hot" class="section">
+    <div class="section-header">
+      <div class="label" style="color:var(--color-ai)">Section 4</div>
+      <h2>🤖 AI 最热</h2>
+      <p class="subtitle">GitHub 全站 AI/ML 领域本周趋势</p>
+    </div>
+    <div id="ai_hot-list"></div>
+  </section>
+</main>
+
+<script>
+// --- Data Loading ---
+async function loadData() {
+  const lists = {
+    skills: document.getElementById('skills-list'),
+    quant: document.getElementById('quant-list'),
+    simulation3d: document.getElementById('simulation3d-list'),
+    ai_hot: document.getElementById('ai_hot-list'),
+  };
+  const loading = '<div class="loading"><p>加载中...</p></div>';
+  Object.values(lists).forEach(el => { el.innerHTML = loading; });
+
+  try {
+    const resp = await fetch('data/weekly-latest.json');
+    const data = await resp.json();
+    document.getElementById('sidebar-date').textContent = data.date + ' · 已更新';
+    renderSections(data.sections, lists);
+  } catch (err) {
+    const empty = '<div class="empty-state"><p>暂无数据。运行 <code>python fetch_weekly.py</code> 生成。</p></div>';
+    Object.values(lists).forEach(el => { el.innerHTML = empty; });
+  }
+}
+
+// --- Render Sections ---
+function renderSections(sections, lists) {
+  for (const [key, repos] of Object.entries(sections)) {
+    const container = lists[key];
+    if (!container) continue;
+    if (!repos || repos.length === 0) {
+      container.innerHTML = '<div class="empty-state"><p>本周暂无数据</p></div>';
+      continue;
+    }
+    container.innerHTML = repos.map(r => buildCard(r, key)).join('');
+  }
+}
+
+// --- Card HTML ---
+function buildCard(repo, section) {
+  const borderColors = {
+    skills: 'var(--color-skills)',
+    quant: 'var(--color-quant)',
+    simulation3d: 'var(--color-sim3d)',
+    ai_hot: 'var(--color-ai)',
+  };
+  const borderColor = borderColors[section] || 'var(--border)';
+  const langLabel = repo.language ? '<span style="color:var(--color-accent)">📋 ' + escapeHtml(repo.language) + '</span>' : '';
+  const installBtn = repo.install_commands && repo.install_commands.length > 0
+    ? '<button class="btn btn-install" onclick="installSkill(\'' + escapeAttr(repo.name) + '\', \'' + escapeAttr(JSON.stringify(repo.install_commands)) + '\')">⬇ 安装到 Claude</button>'
+    : '';
+  const ghBtn = repo.html_url
+    ? '<a href="' + escapeHtml(repo.html_url) + '" target="_blank" class="btn btn-gh">↗ GitHub</a>'
+    : '';
+
+  return (
+    '<div class="repo-card" style="border-left:3px solid ' + borderColor + '">' +
+      '<div class="card-top">' +
+        '<div class="card-info">' +
+          '<div>' +
+            '<span class="rank" style="color:' + borderColor + '">#' + repo.rank + '</span>' +
+            '<a href="' + escapeHtml(repo.html_url || '#') + '" target="_blank" class="repo-name">' + escapeHtml(repo.name) + '</a>' +
+          '</div>' +
+          '<div class="repo-desc">' + escapeHtml(repo.description || '') + '</div>' +
+          '<div class="card-meta">' +
+            '<span>⭐ ' + fmtNum(repo.stars) + '</span>' +
+            (repo.stars_weekly ? '<span>本周 +' + fmtNum(repo.stars_weekly) + '</span>' : '') +
+            langLabel +
+          '</div>' +
+        '</div>' +
+        (installBtn || ghBtn ? '<div class="card-actions">' + installBtn + ghBtn + '</div>' : '') +
+      '</div>' +
+    '</div>'
+  );
+}
+
+// --- Install ---
+function installSkill(name, cmdsJson) {
+  var cmds;
+  try { cmds = JSON.parse(cmdsJson); } catch(e) { return; }
+  var text = cmds.join('\n');
+  navigator.clipboard.writeText(text).then(function() {
+    showToast(name, text);
+  });
+}
+
+function showToast(name, cmdText) {
+  var toast = document.getElementById('toast');
+  document.getElementById('toast-msg').textContent = name + ' — 安装命令已复制到剪贴板';
+  document.getElementById('toast-cmd').textContent = cmdText;
+  toast.classList.add('show');
+  setTimeout(function() { toast.classList.remove('show'); }, 4000);
+}
+
+// --- Navigation ---
+document.querySelectorAll('#sidebar nav button').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('#sidebar nav button').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('.section').forEach(function(s) { s.classList.remove('visible'); });
+    document.getElementById('section-' + btn.dataset.section).classList.add('visible');
+  });
+});
+
+// --- Helpers ---
+function escapeHtml(s) {
+  var div = document.createElement('div');
+  div.textContent = s;
+  return div.innerHTML;
+}
+
+function escapeAttr(s) {
+  return s.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function fmtNum(n) {
+  if (n >= 1000) return (n / 1000).toFixed(1) + 'k';
+  return String(n);
+}
+
+// --- Init ---
+loadData();
+</script>
+</body>
+</html>
